@@ -4,8 +4,10 @@ namespace Model\Sample;
 
 use Model\AbstractModel;
 
-class Doctor extends AbstractModel
+class DoctorClinic extends AbstractModel
 {
+    protected static $useStatusFilter = false;
+
     protected $doctor_id;
     protected $clinic_id;
 

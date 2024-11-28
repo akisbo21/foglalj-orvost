@@ -12,10 +12,18 @@ class SearchController extends AuthenticatedApiController
     {
         $name = $this->request->get('name', Filter::FILTER_SAFE_STRING);
 
-        return Doctor::find([
+        /** @var Doctor[] $doctors */
+        $doctors = Doctor::find([
             'conditions' => 'name LIKE :name:',
             'bind' => ['name' => '%' . $name . '%'],
             'limit' => 20,
         ]);
+
+        $result = [];
+        foreach ($doctors as $doctor) {
+            $result[] = $doctor->toArrayWithClinics();
+        }
+
+        return $result;
     }
 }

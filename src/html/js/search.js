@@ -15,9 +15,15 @@ var Search = function ()
             data.forEach(item => {
                 var resultItem = document.createElement('div');
                 resultItem.innerHTML = `
-                    <span><strong>${item.name}</strong></span>
-                    <span class="specialty">${item.specialty}</span>
+                    <div class="one-doctor" data-doctor-id="${item.id}">
+                        <div><strong>${item.name}</strong></div>
+                        <div class="specialty">${item.specialty}</div>
+                        <div class="clinics">
+                            ${item.clinics.map(clinic => `<div>${clinic.name}</div>`).join('')}
+                        </div>
+                    </div>
                 `;
+
                 self.searchResults.appendChild(resultItem);
             });
         }

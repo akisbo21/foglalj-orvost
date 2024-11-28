@@ -96,7 +96,7 @@ footer {
     width: 100%;
 }
 
-#search-results div {
+#search-results .one-doctor {
     padding: 12px;
     border-bottom: 1px solid #ddd;
     cursor: pointer;
@@ -114,4 +114,15 @@ footer {
     background-color: #f1f1f1;
 }
 
+
+@media (max-width: 420px) {
+    #search-results .one-doctor {
+        display: block;
+        text-align: center;
+    }
+
+    #search-results .one-doctor .clinics{
+        margin-top: 12px;
+    }
+}
 
