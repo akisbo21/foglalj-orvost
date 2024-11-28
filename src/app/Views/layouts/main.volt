@@ -2,21 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Page</title>
+    {{ assets.outputCss() }}
 </head>
 <body>
 <header>
-    <h1>Welcome to My Phalcon App</h1>
+    <div class="container">
+        <h1>Foglalj orvost</h1>
+    </div>
 </header>
-
-<div>aaaaaaaaaa</div>
-
-<div class="content">
-    {{ content() }}
-</div>
-
+<main>
+    <div class="container">
+        {{ content() }}
+    </div>
+</main>
 <footer>
-    <p>2024 Foglalj orvost</p>
+    <div class="container">
+        <p>&copy; 2024 Foglalj orvost. All rights reserved.</p>
+    </div>
 </footer>
 </body>
 </html>

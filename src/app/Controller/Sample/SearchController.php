@@ -10,8 +10,12 @@ class SearchController extends AuthenticatedApiController
 {
     public function indexAction()
     {
-        $name = $this->request->getPut('name', Filter::FILTER_SAFE_STRING);
+        $name = $this->request->get('name', Filter::FILTER_SAFE_STRING);
 
-        return Doctor::find();
+        return Doctor::find([
+            'conditions' => 'name LIKE :name:',
+            'bind' => ['name' => '%' . $name . '%'],
+            'limit' => 20,
+        ]);
     }
 }
